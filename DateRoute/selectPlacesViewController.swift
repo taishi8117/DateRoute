@@ -22,20 +22,29 @@ class selectPlacesViewController: UIViewController, MKMapViewDelegate {
         mapView.mapType = MKMapType.Standard
         mapView.showsUserLocation = false
         
-        //setting region
-        let spanX = 0.007
-        let spanY = 0.007
-        var newRegion = MKCoordinateRegion(center: savedRoute[0].coordinate, span: MKCoordinateSpanMake(spanX, spanY))
-        mapView.setRegion(newRegion, animated: true)
         
         //Preparing for polyline
-        for i in 1..<savedRoute.count {
-            let c1 = savedRoute[i-1].coordinate
-            let c2 = savedRoute[i].coordinate
-            var a = [c1, c2]
-            var polyline = MKPolyline(coordinates: &a, count: a.count)
-            mapView.addOverlay(polyline)
+        var coordinates: [CLLocationCoordinate2D] = []
+        for i in 0..<savedRoute.count {
+            coordinates.append(savedRoute[i].coordinate)
         }
+        var polyline: MKPolyline = MKPolyline(coordinates: &coordinates, count: savedRoute.count)
+        mapView.addOverlay(polyline)
+        
+        //setting region
+        var regionRect = polyline.boundingMapRect
+        
+        var wPadding = regionRect.size.width * 0.8
+        var hPadding = regionRect.size.height * 0.8
+        
+        regionRect.size.width += wPadding
+        regionRect.size.height += hPadding
+        
+        regionRect.origin.x -= wPadding / 2
+        regionRect.origin.y -= hPadding / 2
+        
+        mapView.setRegion(MKCoordinateRegionForMapRect(regionRect), animated: true)
+        
         
         //Preparing for pin
         for visit in savedVisit {

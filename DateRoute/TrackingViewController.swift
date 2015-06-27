@@ -61,6 +61,10 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
         mapView.delegate = self
         mapView.mapType = MKMapType.Standard
         mapView.showsUserLocation = true
+        let spanX = 0.007
+        let spanY = 0.007
+        var newRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpanMake(spanX, spanY))
+        mapView.setRegion(newRegion, animated: true)
 
     }
     
