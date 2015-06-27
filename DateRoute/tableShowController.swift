@@ -9,11 +9,18 @@
 import UIKit
 
 class tableShowController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
-    var texts: [String] = []
-    var ranking: Int = 0
-    let titles = ["a","b","c","d","e","f","g"]
-    let ratings = ["5","4.9","4,8","4.8","4.7","4.6","4.5"]
-    var finalTitle=[]
+    var name: [String] = []
+    var rating: [Int] = []
+    var area: [String] = []
+    var duration: [Int] = []
+    var time: [Int] = []
+    var users: [Int] = []
+    var id: [Int] = []
+    var ranking = 0
+    var point = Dictionary<String,Any>()
+    
+    var resultJsonArray: [NSDictionary] = []
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -36,7 +43,7 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
     
     // セルの行数
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return texts.count
+        return name.count
     }
     
     
@@ -44,16 +51,35 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = texts[indexPath.row] as String
+        cell.textLabel?.text = name[indexPath.row] as String
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         ranking=indexPath.row
-        finalTitle=[titles[ranking], ratings[ranking]]
+        
+        //GET POINTS HERE. DATA=dict
+        getPoints()
+        
         //set variables according to the ranking
         self.performSegueWithIdentifier("showDetails", sender: self)
 }
+    func getPoints(){
+        let reqConfig: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let reqURL: NSURL = NSURL(string: "http://192.168.43.20:5000//api/v1.0/routepoint/2\(id[ranking])")!
+        //let reqURL: NSURL = NSURL(string: "http://localhost:8000/")!
+        let reqReq: NSMutableURLRequest = NSMutableURLRequest(URL: reqURL)
+        let reqSession: NSURLSession = NSURLSession(configuration: reqConfig)
+        reqReq.HTTPMethod = "GET"
+        //reqReq.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        var task = reqSession.dataTaskWithRequest(reqReq, completionHandler: {
+            (data, resp, err) in
+             var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+             var points = dict["Points"] as! NSDictionary
+             self.point = points
+        })
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //Get the new view controller using segue.destinationViewController.
@@ -61,7 +87,14 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
         if (segue.identifier == "showDetails") {
             var detailsView: showDetailsController = segue.destinationViewController as! showDetailsController
             //set variables to pass
-            detailsView.roadTitle = finalTitle as! [String]
+            detailsView.name = name[ranking]
+            detailsView.rating = rating[ranking]
+            detailsView.area = area[ranking]
+            detailsView.duration = duration[ranking]
+            detailsView.time = time[ranking]
+            detailsView.users = users[ranking]
+            detailsView.id = id[ranking]
+            detailsView.points = point
         }
         
     }

@@ -10,13 +10,20 @@ import UIKit
 
 class showDetailsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var roadTitle:[String]=[]
+    var name: String?
+    var rating: Int?
+    var area: String?
+    var duration: Int?
+    var time: Int?
+    var users: Int?
+    var id: Int?
+    var points = Dictionary<String,Any>()
+
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("\(roadTitle)")
         // Do any additional setup after loading the view, typically from a nib.
         
         // tableView.delegate = self
@@ -34,18 +41,18 @@ class showDetailsController: UIViewController, UITableViewDataSource, UITableVie
     
     
     // セルの行数
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return roadTitle.count
-    }
+    /*func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return name.count
+    }*/
     
     
     //セルの内容を変更
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+   /* func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = roadTitle[indexPath.row] as String
+        cell.textLabel?.text = name[indexPath.row] as String
         return cell
     }
-
+*/
     
 }
