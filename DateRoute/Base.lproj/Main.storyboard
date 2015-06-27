@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xBZ-cT-wHW">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wr-ZZ-Orx">
-                                <rect key="frame" x="277" y="366" width="95" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wr-ZZ-Orx">
+                                <rect key="frame" x="253" y="366" width="95" height="30"/>
                                 <state key="normal" title="Start Tracking">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -28,11 +29,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="1wr-ZZ-Orx" secondAttribute="centerX" id="YeG-Pg-N5b"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tZ0-QW-nwm"/>
                     <connections>
                         <outlet property="startTracking" destination="1wr-ZZ-Orx" id="W97-Dk-ZFf"/>
-                        <segue destination="JRY-Ze-bX2" kind="show" identifier="pushTrack" id="JS0-EA-Ppy"/>
+                        <segue destination="JRY-Ze-bX2" kind="presentation" identifier="pushTrack" modalTransitionStyle="crossDissolve" id="JS0-EA-Ppy"/>
                     </connections>
                 </viewController>
             </objects>
@@ -50,26 +54,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eZt-ZT-PK9">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eZt-ZT-PK9">
                                 <rect key="frame" x="87" y="87" width="426" height="426"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDm-fw-cv5">
-                                <rect key="frame" x="16" y="521" width="568" height="71"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVD-7g-SCe">
+                                <rect key="frame" x="249" y="550" width="103" height="30"/>
+                                <state key="normal" title="Finished Route">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="finishedButtonPressed:" destination="JRY-Ze-bX2" eventType="touchUpInside" id="jwn-AV-L7l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ZVD-7g-SCe" secondAttribute="centerX" id="EcC-MT-CSj"/>
+                            <constraint firstItem="eZt-ZT-PK9" firstAttribute="leading" secondItem="uA2-xc-RFN" secondAttribute="leadingMargin" constant="10" id="Ibk-UD-1bP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eZt-ZT-PK9" secondAttribute="trailing" constant="10" id="azw-64-EcD"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="mapLabel" destination="EDm-fw-cv5" id="fV2-p7-lBe"/>
+                        <outlet property="finishedButton" destination="ZVD-7g-SCe" id="hwO-l7-kEx"/>
                         <outlet property="mapView" destination="eZt-ZT-PK9" id="gJi-3w-t3V"/>
+                        <segue destination="acb-Te-GvE" kind="showDetail" identifier="pushSelectPlaces" id="ecc-dH-j38"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eR-kz-ODt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1953" y="382"/>
+        </scene>
+        <!--Select Places View Controller-->
+        <scene sceneID="zXZ-h3-TLE">
+            <objects>
+                <viewController id="acb-Te-GvE" customClass="selectPlacesViewController" customModule="DateRoute" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eV2-fA-cH0"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dxs-Gx-g5Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pfF-TD-JPc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DXZ-iV-9ev">
+                                <rect key="frame" x="53" y="81" width="494" height="494"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="DXZ-iV-9ev" secondAttribute="centerX" id="8fj-a6-rZ8"/>
+                            <constraint firstAttribute="centerY" secondItem="DXZ-iV-9ev" secondAttribute="centerY" id="a8h-qD-Keg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="DXZ-iV-9ev" id="Drl-SO-USN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0cB-Ng-lDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2737" y="324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j89-gO-MUx">
