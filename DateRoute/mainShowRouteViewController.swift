@@ -10,6 +10,7 @@ import UIKit
 
 class mainShowRouteViewController: UIViewController {
 
+    let texts = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var locationPicked: UITextField!
     @IBOutlet weak var timepicked: UITextField!
@@ -29,15 +30,13 @@ class mainShowRouteViewController: UIViewController {
     self.performSegueWithIdentifier("pushShowTable", sender: self)
     }
     
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if (segue.identifier == "pushSelectPlaces") {
-            var selectPlacesView: selectPlacesViewController = segue.destinationViewController as! selectPlacesViewController
-            selectPlacesView.titles = titles;
-            selectPlacesView.ratings = ratings;
-            
-        }*/
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+         //Get the new view controller using segue.destinationViewController.
+         //Pass the selected object to the new view controller.
+        if (segue.identifier == "pushShowTable") {
+            var titlesView: tableShowController = segue.destinationViewController as! tableShowController
+            titlesView.texts = texts;
+        }
 
        }
     
@@ -54,3 +53,4 @@ class mainShowRouteViewController: UIViewController {
     */
 
 
+}
