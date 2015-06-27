@@ -15,11 +15,8 @@
 		5ACF38B61B3E6B060044EC34 /* DateRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF38B51B3E6B060044EC34 /* DateRouteTests.swift */; };
 		5AE7051E1B3E6D3D00EC926A /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */; };
 		5AE705241B3E9F7900EC926A /* mainShowRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE705231B3E9F7900EC926A /* mainShowRouteViewController.swift */; };
-<<<<<<< Updated upstream
 		5AE705331B3EC9ED00EC926A /* finishedRouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE705321B3EC9ED00EC926A /* finishedRouteTableViewController.swift */; };
-=======
 		FE74EE941B3EC62600E16922 /* showDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE74EE931B3EC62600E16922 /* showDetailsController.swift */; };
->>>>>>> Stashed changes
 		FE89F30A1B3EB49B00484DB6 /* tableShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE89F3091B3EB49B00484DB6 /* tableShowController.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,11 +43,8 @@
 		5ACF38B51B3E6B060044EC34 /* DateRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRouteTests.swift; sourceTree = "<group>"; };
 		5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		5AE705231B3E9F7900EC926A /* mainShowRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainShowRouteViewController.swift; sourceTree = "<group>"; };
-<<<<<<< Updated upstream
 		5AE705321B3EC9ED00EC926A /* finishedRouteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = finishedRouteTableViewController.swift; sourceTree = "<group>"; };
-=======
 		FE74EE931B3EC62600E16922 /* showDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showDetailsController.swift; sourceTree = "<group>"; };
->>>>>>> Stashed changes
 		FE89F3091B3EB49B00484DB6 /* tableShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableShowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,11 +90,8 @@
 				5ACF389F1B3E6B060044EC34 /* AppDelegate.swift */,
 				5ACF38A11B3E6B060044EC34 /* ViewController.swift */,
 				5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */,
-<<<<<<< Updated upstream
-=======
 				FE74EE931B3EC62600E16922 /* showDetailsController.swift */,
 				5AE7051F1B3E76F700EC926A /* selectPlacesViewController.swift */,
->>>>>>> Stashed changes
 				FE89F3091B3EB49B00484DB6 /* tableShowController.swift */,
 				5AE705231B3E9F7900EC926A /* mainShowRouteViewController.swift */,
 				5ACF38A31B3E6B060044EC34 /* Main.storyboard */,
