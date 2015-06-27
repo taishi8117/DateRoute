@@ -16,6 +16,7 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     var savedRoute: [CLLocation] = []
     var savedVisit: [CLVisit] = []
     var savedTime: TimeElement!
+    var comment = "Comment test"
     
     var mapView: MKMapView?
 
@@ -130,6 +131,38 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     
     func doneButtonPressed() {
         //SEND JSON!!!
+        creatingJson()
+    }
+    
+    func creatingJson() {
+        
+        var commentDict: NSDictionary = ["Comment": self.comment,"RouteId": 2]
+        var e: NSError?
+        let json = NSJSONSerialization.dataWithJSONObject(commentDict, options: NSJSONWritingOptions(0), error: &e)
+        
+        
+        //HTTP Req
+        let reqConfig: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let reqURL: NSURL = NSURL(string: "http://192.168.43.20:5000/postcomment/")!
+        //let reqURL: NSURL = NSURL(string: "http://localhost:8000/")!
+        let reqReq: NSMutableURLRequest = NSMutableURLRequest(URL: reqURL)
+        let reqSession: NSURLSession = NSURLSession(configuration: reqConfig)
+        reqReq.HTTPMethod = "POST"
+        reqReq.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        println("JSON FILE:\(NSString(data:json!, encoding: NSUTF8StringEncoding)!)")
+        //converting json to str (adjusting keys)
+        var reqData:NSString = "\(NSString(data:json!, encoding: NSUTF8StringEncoding)!)"
+        reqReq.HTTPBody = reqData.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        var task = reqSession.dataTaskWithRequest(reqReq, completionHandler: {
+            (data, resp, err) in
+            //println(resp.URL!)
+            println(NSString(data: data, encoding: NSUTF8StringEncoding))
+        })
+        task.resume()
+        
+        
     }
     
     func stringFromTimeInterval(interval:NSTimeInterval) -> NSString {
