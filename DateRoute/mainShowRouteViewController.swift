@@ -24,8 +24,12 @@ class mainShowRouteViewController: UIViewController {
     
 
     @IBAction func locationButtonPressed(sender: AnyObject) {
+         //get locations from database
         self.performSegueWithIdentifier("pushShowTable", sender: self)
+       
     }
+    
+    
     /*
     // MARK: - Navigation
 
