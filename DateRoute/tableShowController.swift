@@ -50,7 +50,7 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
          ranking=indexPath.row
-        finalTitle=[titles[ranking], ratings[ranking]]
+    finalTitle=[titles[ranking], ratings[ranking]]
         //set variables according to the ranking
         self.performSegueWithIdentifier("showDetails", sender: self)
 }
