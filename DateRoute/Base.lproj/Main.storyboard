@@ -252,15 +252,23 @@
         <scene sceneID="28F-Qu-ngx">
             <objects>
                 <viewController id="MBh-Ji-mHb" customClass="showDetailsController" customModule="DateRoute" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="h0h-wI-ddc"/>
-                        <viewControllerLayoutGuide type="bottom" id="szf-4z-7zD"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wba-Ie-EAM">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9Mu-cG-jyv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hkf-GT-AZY">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hkf-GT-AZY" id="nOK-k6-GBB">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="9Mu-cG-jyv" id="jJX-gQ-VoI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIT-Js-ELO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

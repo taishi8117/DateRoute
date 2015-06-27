@@ -21,6 +21,8 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
         var insets: UIEdgeInsets = self.tableView.contentInset;
         insets.top += 64;
         self.tableView.contentInset = insets;
+        self.tableView.scrollEnabled = false;
+        
         
 
         // Uncomment the following line to preserve selection between presentations
