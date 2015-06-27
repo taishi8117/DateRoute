@@ -18,11 +18,12 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        var insets: UIEdgeInsets = self.tableView.contentInset;
-        insets.top += 64;
-        self.tableView.contentInset = insets;
         self.tableView.scrollEnabled = false;
         
+        var v:UIView = UIView(frame: CGRectZero)
+        v.backgroundColor = UIColor.clearColor()
+        self.tableView.tableHeaderView = v
+        self.tableView.tableFooterView = v
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -49,6 +50,19 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return 3
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if (indexPath.row == 0) {
+            return 120
+        }else if (indexPath.row == 1) {
+            return 90
+        }else if (indexPath.row == 2) {
+            return UIScreen.mainScreen().bounds.size.height - 210
+        }
+        else {
+            return 0
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
