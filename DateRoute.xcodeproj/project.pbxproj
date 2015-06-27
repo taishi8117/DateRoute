@@ -89,10 +89,10 @@
 			children = (
 				5ACF389F1B3E6B060044EC34 /* AppDelegate.swift */,
 				5ACF38A11B3E6B060044EC34 /* ViewController.swift */,
-				5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */,
 				FE74EE931B3EC62600E16922 /* showDetailsController.swift */,
 				FE89F3091B3EB49B00484DB6 /* tableShowController.swift */,
 				5AE705231B3E9F7900EC926A /* mainShowRouteViewController.swift */,
+				5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */,
 				5AE705321B3EC9ED00EC926A /* finishedRouteTableViewController.swift */,
 				5ACF38A31B3E6B060044EC34 /* Main.storyboard */,
 				5ACF38A61B3E6B060044EC34 /* Images.xcassets */,

@@ -11,6 +11,7 @@ import UIKit
 import CoreLocation
 import MapKit
 
+typealias TimeElement = (begin: NSDate, end: NSDate, duration: NSTimeInterval)
 
 class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
@@ -20,9 +21,14 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
     var manager:CLLocationManager!
     var myLocations: [CLLocation] = []
     var myVisits: [CLVisit] = []
+    var beginTime: NSDate!
+    var myTime: TimeElement!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Record starting time
+        beginTime = NSDate()
         
         //Setup for Location Manager
         manager = CLLocationManager()
@@ -115,9 +121,26 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
         return nil
     }
     @IBAction func finishedButtonPressed(sender: UIButton) {
-        manager.stopMonitoringVisits()
-        manager.stopUpdatingLocation()
-        self.performSegueWithIdentifier("pushFinishedRoute", sender: self)
+        let end = NSDate()
+        var duration = end.timeIntervalSinceDate(self.beginTime)
+        self.myTime = (self.beginTime, end, duration)
+        
+        
+        
+        if (myLocations.count < 3) {
+            let alert = UIAlertController(
+                title: "Too Few Locations Recorded!",
+                message: "In order to be notified about adorable kittens near you, please open this app's settings and set location access to 'Always'.",
+                preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            alert.addAction(cancelAction)
+            presentViewController(alert, animated: true, completion: nil)
+            
+        } else{
+            manager.stopMonitoringVisits()
+            manager.stopUpdatingLocation()
+            self.performSegueWithIdentifier("pushFinishedRoute", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -134,8 +157,9 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
         // Pass the selected object to the new view controller.
         if (segue.identifier == "pushFinishedRoute") {
             var finishedRouteView: finishedRouteTableViewController = segue.destinationViewController as! finishedRouteTableViewController
-            finishedRouteView.savedRoute = myLocations
-            finishedRouteView.savedVisit = myVisits
+            finishedRouteView.savedRoute = self.myLocations
+            finishedRouteView.savedVisit = self.myVisits
+            finishedRouteView.savedTime = self.myTime
             
         }
         

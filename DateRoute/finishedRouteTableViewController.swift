@@ -9,16 +9,21 @@
 import UIKit
 import MapKit
 
+
+
 class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate{
     
     var savedRoute: [CLLocation] = []
     var savedVisit: [CLVisit] = []
+    var savedTime: TimeElement!
     
     var mapView: MKMapView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.scrollEnabled = false;
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneButtonPressed")
+        self.title = "Finished Route"
         
         var v:UIView = UIView(frame: CGRectZero)
         v.backgroundColor = UIColor.clearColor()
@@ -54,9 +59,9 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if (indexPath.row == 0) {
-            return 120
+            return 144
         }else if (indexPath.row == 1) {
-            return 90
+            return 100
         }else if (indexPath.row == 2) {
             return UIScreen.mainScreen().bounds.size.height - 210
         }
@@ -68,6 +73,9 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
             let cell = tableView.dequeueReusableCellWithIdentifier("titleCell", forIndexPath: indexPath) as! UITableViewCell
+            var timeLabel: UILabel? = cell.contentView.viewWithTag(13) as? UILabel
+            timeLabel?.text = stringFromTimeInterval(self.savedTime.duration) as String
+            
             return cell
         }
         else if (indexPath.row == 1) {
@@ -118,6 +126,23 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
         
         // Configure the cell...
 
+    }
+    
+    func doneButtonPressed() {
+        //SEND JSON!!!
+    }
+    
+    func stringFromTimeInterval(interval:NSTimeInterval) -> NSString {
+        
+        var ti = NSInteger(interval)
+        
+        var ms = Int((interval % 1) * 1000)
+        
+        var seconds = ti % 60
+        var minutes = (ti / 60) % 60
+        var hours = (ti / 3600)
+        
+        return NSString(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
     }
     
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
