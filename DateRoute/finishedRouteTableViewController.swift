@@ -14,7 +14,6 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     var savedRoute: [CLLocation] = []
     var savedVisit: [CLVisit] = []
     
-    
     var mapView: MKMapView?
 
     override func viewDidLoad() {
