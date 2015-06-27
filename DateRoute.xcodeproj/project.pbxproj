@@ -15,8 +15,8 @@
 		5ACF38B61B3E6B060044EC34 /* DateRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF38B51B3E6B060044EC34 /* DateRouteTests.swift */; };
 		5AE7051E1B3E6D3D00EC926A /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */; };
 		5AE705201B3E76F700EC926A /* selectPlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE7051F1B3E76F700EC926A /* selectPlacesViewController.swift */; };
-		5AE705221B3E9E6600EC926A /* ShowRouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE705211B3E9E6600EC926A /* ShowRouteTableViewController.swift */; };
 		5AE705241B3E9F7900EC926A /* mainShowRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE705231B3E9F7900EC926A /* mainShowRouteViewController.swift */; };
+		FE89F30A1B3EB49B00484DB6 /* tableShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE89F3091B3EB49B00484DB6 /* tableShowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +42,8 @@
 		5ACF38B51B3E6B060044EC34 /* DateRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRouteTests.swift; sourceTree = "<group>"; };
 		5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		5AE7051F1B3E76F700EC926A /* selectPlacesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = selectPlacesViewController.swift; sourceTree = "<group>"; };
-		5AE705211B3E9E6600EC926A /* ShowRouteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowRouteTableViewController.swift; sourceTree = "<group>"; };
 		5AE705231B3E9F7900EC926A /* mainShowRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainShowRouteViewController.swift; sourceTree = "<group>"; };
+		FE89F3091B3EB49B00484DB6 /* tableShowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableShowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 				5ACF38A11B3E6B060044EC34 /* ViewController.swift */,
 				5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */,
 				5AE7051F1B3E76F700EC926A /* selectPlacesViewController.swift */,
-				5AE705211B3E9E6600EC926A /* ShowRouteTableViewController.swift */,
+				FE89F3091B3EB49B00484DB6 /* tableShowController.swift */,
 				5AE705231B3E9F7900EC926A /* mainShowRouteViewController.swift */,
 				5ACF38A31B3E6B060044EC34 /* Main.storyboard */,
 				5ACF38A61B3E6B060044EC34 /* Images.xcassets */,
@@ -230,11 +230,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AE705201B3E76F700EC926A /* selectPlacesViewController.swift in Sources */,
+				FE89F30A1B3EB49B00484DB6 /* tableShowController.swift in Sources */,
 				5AE7051E1B3E6D3D00EC926A /* TrackingViewController.swift in Sources */,
 				5ACF38A21B3E6B060044EC34 /* ViewController.swift in Sources */,
 				5ACF38A01B3E6B060044EC34 /* AppDelegate.swift in Sources */,
 				5AE705241B3E9F7900EC926A /* mainShowRouteViewController.swift in Sources */,
-				5AE705221B3E9E6600EC926A /* ShowRouteTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

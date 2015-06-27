@@ -10,7 +10,9 @@ import UIKit
 
 class mainShowRouteViewController: UIViewController {
 
-    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var locationPicked: UITextField!
+    @IBOutlet weak var timepicked: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,11 +25,22 @@ class mainShowRouteViewController: UIViewController {
     }
     
 
-    @IBAction func locationButtonPressed(sender: AnyObject) {
-         //get locations from database
-        self.performSegueWithIdentifier("pushShowTable", sender: self)
-       
+    @IBAction func searchButtonPressed(sender: AnyObject) {
+    self.performSegueWithIdentifier("pushShowTable", sender: self)
     }
+    
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if (segue.identifier == "pushSelectPlaces") {
+            var selectPlacesView: selectPlacesViewController = segue.destinationViewController as! selectPlacesViewController
+            selectPlacesView.titles = titles;
+            selectPlacesView.ratings = ratings;
+            
+        }*/
+
+       }
+    
     
     
     /*
@@ -40,4 +53,4 @@ class mainShowRouteViewController: UIViewController {
     }
     */
 
-}
+
