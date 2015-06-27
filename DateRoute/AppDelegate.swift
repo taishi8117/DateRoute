@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         // initialize SDK with IBM Bluemix application ID and route
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
         return true
     }
     

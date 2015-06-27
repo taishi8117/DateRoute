@@ -15,6 +15,7 @@ typealias TimeElement = (begin: NSDate, end: NSDate, duration: NSTimeInterval)
 
 class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
+    @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var finishedButton: UIButton!
     
@@ -26,6 +27,7 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Tracking Your Route"
         
         //Record starting time
         beginTime = NSDate()
@@ -47,6 +49,9 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
         let spanX = 0.007
         let spanY = 0.007
         var hillsLoc: CLLocationCoordinate2D = CLLocationCoordinate2DMake(35.666851, 139.74955)
+        
+        mapView.layer.borderColor = UIColor.whiteColor().CGColor
+        mapView.layer.borderWidth = 2.0
         
         //mapView.setCenterCoordinate(hillsLoc, animated: false)
         
@@ -95,6 +100,7 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         println("Updated Location: \(locations[0])")
         myLocations.append(locations[0] as! CLLocation)
+        //mapView.setUserTrackingMode(MKUserTrackingMode.None, animated: false)
         
         let spanX = 0.007
         let spanY = 0.007
@@ -136,6 +142,9 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
         }
         
         return nil
+    }
+    @IBAction func closeButtonPressed(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     @IBAction func finishedButtonPressed(sender: UIButton) {
         let end = NSDate()

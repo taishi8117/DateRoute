@@ -22,6 +22,7 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.hidden = false
         self.tableView.scrollEnabled = false;
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneButtonPressed")
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancelButtonPressed")
@@ -56,20 +57,22 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 3
+        return 2
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if (indexPath.row == 0) {
-            return 144
+            return 244
         }else if (indexPath.row == 1) {
-            return 100
-        }else if (indexPath.row == 2) {
             return UIScreen.mainScreen().bounds.size.height - 210
         }
         else {
             return 0
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController!.navigationBarHidden = false
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -79,11 +82,6 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
             timeLabel?.text = stringFromTimeInterval(self.savedTime.duration) as String
             
             return cell
-        }
-        else if (indexPath.row == 1) {
-            let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath) as! UITableViewCell
-            return cell
-            
         }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath) as! UITableViewCell
@@ -180,7 +178,7 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
         var minutes = (ti / 60) % 60
         var hours = (ti / 3600)
         
-        return NSString(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
+        return NSString(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
     }
     
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {

@@ -41,18 +41,18 @@ class showDetailsController: UIViewController, UITableViewDataSource, UITableVie
     
     
     // セルの行数
-    /*func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return name.count
-    }*/
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
     
     
     //セルの内容を変更
-   /* func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-        cell.textLabel?.text = name[indexPath.row] as String
+        //cell.textLabel?.text = name[indexPath.row] as String
         return cell
     }
-*/
+
     
 }

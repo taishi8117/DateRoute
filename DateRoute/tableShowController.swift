@@ -17,8 +17,9 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
     var users: [Int] = []
     var id: [Int] = []
     var ranking = 0
-    var point = Dictionary<String,Any>()
+    //var point = Dictionary<String,Any>()
     
+    var routeDict: [NSDictionary] = []
     var resultJsonArray: [NSDictionary] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -76,8 +77,8 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
         var task = reqSession.dataTaskWithRequest(reqReq, completionHandler: {
             (data, resp, err) in
              var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
-             var points = dict["Points"] as! NSDictionary
-             self.point = points
+             //var points = dict["Points"] as! Dictionary
+             //self.point = points
         })
     }
     
@@ -94,7 +95,7 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
             detailsView.time = time[ranking]
             detailsView.users = users[ranking]
             detailsView.id = id[ranking]
-            detailsView.points = point
+            //detailsView.points = point
         }
         
     }

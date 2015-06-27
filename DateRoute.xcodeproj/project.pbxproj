@@ -10,11 +10,17 @@
 		5A381FC51B3F32C200CFF171 /* launch-background@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A381FC41B3F32C200CFF171 /* launch-background@2x.jpg */; };
 		5A381FCB1B3F37A500CFF171 /* choosebtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A381FCA1B3F37A500CFF171 /* choosebtn.png */; };
 		5A381FCD1B3F38A900CFF171 /* shareroutebtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A381FCC1B3F38A900CFF171 /* shareroutebtn.png */; };
+		5A381FD11B3F49B600CFF171 /* tracking.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5A381FD01B3F49B600CFF171 /* tracking.jpg */; };
+		5A381FD71B3F4B6C00CFF171 /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A381FD61B3F4B6C00CFF171 /* done.png */; };
+		5A381FD91B3F52B400CFF171 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A381FD81B3F52B400CFF171 /* close.png */; };
 		5ACF38A01B3E6B060044EC34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF389F1B3E6B060044EC34 /* AppDelegate.swift */; };
 		5ACF38A21B3E6B060044EC34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF38A11B3E6B060044EC34 /* ViewController.swift */; };
 		5ACF38A51B3E6B060044EC34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF38A31B3E6B060044EC34 /* Main.storyboard */; };
 		5ACF38AA1B3E6B060044EC34 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF38A81B3E6B060044EC34 /* LaunchScreen.xib */; };
 		5ACF38B61B3E6B060044EC34 /* DateRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF38B51B3E6B060044EC34 /* DateRouteTests.swift */; };
+		5AD9A8561B3F55850040BB9D /* first.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AD9A8551B3F55850040BB9D /* first.jpg */; };
+		5AD9A8581B3F661D0040BB9D /* bg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AD9A8571B3F661D0040BB9D /* bg2.jpg */; };
+		5AD9A85C1B3F67B00040BB9D /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD9A85B1B3F67B00040BB9D /* clock.png */; };
 		5AE7051E1B3E6D3D00EC926A /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */; };
 		5AE705241B3E9F7900EC926A /* mainShowRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE705231B3E9F7900EC926A /* mainShowRouteViewController.swift */; };
 		5AE705331B3EC9ED00EC926A /* finishedRouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE705321B3EC9ED00EC926A /* finishedRouteTableViewController.swift */; };
@@ -36,6 +42,9 @@
 		5A381FC41B3F32C200CFF171 /* launch-background@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "launch-background@2x.jpg"; sourceTree = "<group>"; };
 		5A381FCA1B3F37A500CFF171 /* choosebtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = choosebtn.png; sourceTree = "<group>"; };
 		5A381FCC1B3F38A900CFF171 /* shareroutebtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shareroutebtn.png; sourceTree = "<group>"; };
+		5A381FD01B3F49B600CFF171 /* tracking.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tracking.jpg; sourceTree = "<group>"; };
+		5A381FD61B3F4B6C00CFF171 /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done.png; sourceTree = "<group>"; };
+		5A381FD81B3F52B400CFF171 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
 		5ACF389A1B3E6B060044EC34 /* DateRoute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DateRoute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ACF389E1B3E6B060044EC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5ACF389F1B3E6B060044EC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +54,9 @@
 		5ACF38AF1B3E6B060044EC34 /* DateRouteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DateRouteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ACF38B41B3E6B060044EC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5ACF38B51B3E6B060044EC34 /* DateRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRouteTests.swift; sourceTree = "<group>"; };
+		5AD9A8551B3F55850040BB9D /* first.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = first.jpg; sourceTree = "<group>"; };
+		5AD9A8571B3F661D0040BB9D /* bg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg2.jpg; sourceTree = "<group>"; };
+		5AD9A85B1B3F67B00040BB9D /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
 		5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		5AE705231B3E9F7900EC926A /* mainShowRouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainShowRouteViewController.swift; sourceTree = "<group>"; };
 		5AE705321B3EC9ED00EC926A /* finishedRouteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = finishedRouteTableViewController.swift; sourceTree = "<group>"; };
@@ -73,8 +85,14 @@
 		5A381FC31B3F32BA00CFF171 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
+				5A381FD01B3F49B600CFF171 /* tracking.jpg */,
+				5AD9A85B1B3F67B00040BB9D /* clock.png */,
+				5A381FD81B3F52B400CFF171 /* close.png */,
 				5A381FCC1B3F38A900CFF171 /* shareroutebtn.png */,
+				5A381FD61B3F4B6C00CFF171 /* done.png */,
+				5AD9A8551B3F55850040BB9D /* first.jpg */,
 				5A381FCA1B3F37A500CFF171 /* choosebtn.png */,
+				5AD9A8571B3F661D0040BB9D /* bg2.jpg */,
 				5A381FC41B3F32C200CFF171 /* launch-background@2x.jpg */,
 			);
 			name = Photos;
@@ -228,8 +246,14 @@
 			files = (
 				5A381FC51B3F32C200CFF171 /* launch-background@2x.jpg in Resources */,
 				5A381FCD1B3F38A900CFF171 /* shareroutebtn.png in Resources */,
+				5A381FD91B3F52B400CFF171 /* close.png in Resources */,
+				5AD9A8581B3F661D0040BB9D /* bg2.jpg in Resources */,
+				5AD9A8561B3F55850040BB9D /* first.jpg in Resources */,
 				5ACF38A51B3E6B060044EC34 /* Main.storyboard in Resources */,
+				5A381FD71B3F4B6C00CFF171 /* done.png in Resources */,
+				5AD9A85C1B3F67B00040BB9D /* clock.png in Resources */,
 				5A381FCB1B3F37A500CFF171 /* choosebtn.png in Resources */,
+				5A381FD11B3F49B600CFF171 /* tracking.jpg in Resources */,
 				5ACF38AA1B3E6B060044EC34 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

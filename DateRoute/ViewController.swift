@@ -16,6 +16,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //self.navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        //self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.translucent = true
+        self.navigationController!.navigationBar.alpha  = 0.2
+        self.navigationController!.navigationBar.hidden = true
+        //self.navigationController!.navigationBar.barTintColor = UIColor(red: 0,green: 0, blue: 0, alpha: 0.1)
+        
         // Do any additional setup after loading the view, typically from a nib.
         switch CLLocationManager.authorizationStatus() {
         case .AuthorizedAlways:
@@ -39,6 +46,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             self.presentViewController(alertController, animated: true, completion: nil)
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController!.navigationBarHidden = true
     }
     
     @IBAction func trackButtonPressed(sender: UIButton) {
