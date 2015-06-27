@@ -35,7 +35,7 @@ class mainShowRouteViewController: UIViewController {
          //Pass the selected object to the new view controller.
         if (segue.identifier == "pushShowTable") {
             var titlesView: tableShowController = segue.destinationViewController as! tableShowController
-            titlesView.texts = texts;
+            titlesView.texts = texts
         }
 
        }

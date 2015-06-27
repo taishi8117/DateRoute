@@ -127,7 +127,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" tag="120" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DXZ-iV-9ev">
-                                            <rect key="frame" x="0.0" y="-1" width="600" height="421.5"/>
+                                            <rect key="frame" x="0.0" y="-1" width="600" height="422"/>
                                         </mapView>
                                     </subviews>
                                 </tableViewCellContentView>
