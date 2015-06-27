@@ -132,10 +132,10 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if (segue.identifier == "pushSelectPlaces") {
-            var selectPlacesView: selectPlacesViewController = segue.destinationViewController as! selectPlacesViewController
-            selectPlacesView.savedRoute = myLocations
-            selectPlacesView.savedVisit = myVisits
+        if (segue.identifier == "pushFinishedRoute") {
+            var finishedRouteView: finishRouteViewController = segue.destinationViewController as! finishRouteViewController
+            finishedRouteView.savedRoute = myLocations
+            finishedRouteView.savedVisit = myVisits
             
         }
         
