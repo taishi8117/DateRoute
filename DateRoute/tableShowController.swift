@@ -11,8 +11,8 @@ import UIKit
 class tableShowController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     var texts: [String] = []
     var ranking: Int = 0
-    let titles = ["a","b","c","d","e"]
-    let ratings = ["5","4.9","4,8","4.8","4.7"]
+    let titles = ["a","b","c","d","e","f","g"]
+    let ratings = ["5","4.9","4,8","4.8","4.7","4.6","4.5"]
     var finalTitle=[]
     @IBOutlet weak var tableView: UITableView!
     
@@ -49,8 +49,8 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-         ranking=indexPath.row
-    finalTitle=[titles[ranking], ratings[ranking]]
+        ranking=indexPath.row
+        finalTitle=[titles[ranking], ratings[ranking]]
         //set variables according to the ranking
         self.performSegueWithIdentifier("showDetails", sender: self)
 }

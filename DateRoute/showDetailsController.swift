@@ -10,12 +10,13 @@ import UIKit
 
 class showDetailsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var roadTitle:[String]=[];
+    var roadTitle:[String]=[]
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("\(roadTitle)")
         // Do any additional setup after loading the view, typically from a nib.
         
         // tableView.delegate = self
