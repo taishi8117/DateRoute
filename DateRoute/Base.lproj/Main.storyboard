@@ -90,30 +90,30 @@
                     <connections>
                         <outlet property="finishedButton" destination="ZVD-7g-SCe" id="hwO-l7-kEx"/>
                         <outlet property="mapView" destination="eZt-ZT-PK9" id="gJi-3w-t3V"/>
-                        <segue destination="ruh-nX-h9f" kind="show" identifier="pushFinishedRoute" id="8it-40-t6E"/>
+                        <segue destination="ruh-nX-h9f" kind="show" identifier="pushFinishedRoute" id="cAz-zl-txg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eR-kz-ODt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1953" y="382"/>
+            <point key="canvasLocation" x="2092" y="378"/>
         </scene>
-        <!--Finish Route View Controller-->
+        <!--Finished Route Table View Controller-->
         <scene sceneID="BpK-Yt-wb1">
             <objects>
-                <tableViewController id="ruh-nX-h9f" customClass="finishRouteViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2Ed-F8-hWw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="ruh-nX-h9f" customClass="finishedRouteTableViewController" customModule="DateRoute" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2Ed-F8-hWw">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="113" id="aye-jF-uv3">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="9" reuseIdentifier="titleCell" rowHeight="113" id="aye-jF-uv3">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aye-jF-uv3" id="AEk-mF-dgw">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="w3A-QW-MXM">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailCell" id="w3A-QW-MXM">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w3A-QW-MXM" id="ZrP-Ge-tw3">
@@ -133,6 +133,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="ruh-nX-h9f" id="AYu-YL-s99"/>
                             <outlet property="delegate" destination="ruh-nX-h9f" id="Hg0-3e-sdu"/>

@@ -117,7 +117,7 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
     @IBAction func finishedButtonPressed(sender: UIButton) {
         manager.stopMonitoringVisits()
         manager.stopUpdatingLocation()
-        self.performSegueWithIdentifier("pushSelectPlaces", sender: self)
+        self.performSegueWithIdentifier("pushFinishedRoute", sender: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -133,7 +133,7 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "pushFinishedRoute") {
-            var finishedRouteView: finishRouteViewController = segue.destinationViewController as! finishRouteViewController
+            var finishedRouteView: finishedRouteTableViewController = segue.destinationViewController as! finishedRouteTableViewController
             finishedRouteView.savedRoute = myLocations
             finishedRouteView.savedVisit = myVisits
             

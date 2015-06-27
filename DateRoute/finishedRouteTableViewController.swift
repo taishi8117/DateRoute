@@ -1,5 +1,5 @@
 //
-//  finishRouteViewController.swift
+//  finishedRouteTableViewController.swift
 //  DateRoute
 //
 //  Created by TAISHI on 6/27/15.
@@ -7,20 +7,21 @@
 //
 
 import UIKit
+import MapKit
 
-class finishRouteViewController: UITableViewController, MKMapViewDelegate {
+class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate{
     
     var savedRoute: [CLLocation] = []
     var savedVisit: [CLVisit] = []
     
-    var mapView: MKMapView
+    var mapView: MKMapView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        var insets: UIEdgeInsets = self.tableView.contentInset;
+        insets.top += 64;
+        self.tableView.contentInset = insets;
         
-        mapView.delegate = self
-        mapView.mapType = MKMapType.Standard
-        mapView.showsUserLocation = false
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -39,19 +40,31 @@ class finishRouteViewController: UITableViewController, MKMapViewDelegate {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return 3
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if (indexPath.row == 2) {
+        if (indexPath.row == 0) {
+            let cell = tableView.dequeueReusableCellWithIdentifier("titleCell", forIndexPath: indexPath) as! UITableViewCell
+            return cell
+        }
+        else if (indexPath.row == 1) {
+            let cell = tableView.dequeueReusableCellWithIdentifier("detailCell", forIndexPath: indexPath) as! UITableViewCell
+            return cell
+            
+        }
+        else {
             let cell = tableView.dequeueReusableCellWithIdentifier("mapCell", forIndexPath: indexPath) as! UITableViewCell
-            mapView = cell.contentView.viewWithTag(120) as! MKMapView
+            mapView = cell.contentView.viewWithTag(120) as? MKMapView
+            mapView!.delegate = self
+            mapView!.mapType = MKMapType.Standard
+            mapView!.showsUserLocation = false
             
             //Preparing for polyline
             var coordinates: [CLLocationCoordinate2D] = []
@@ -59,7 +72,7 @@ class finishRouteViewController: UITableViewController, MKMapViewDelegate {
                 coordinates.append(savedRoute[i].coordinate)
             }
             var polyline: MKPolyline = MKPolyline(coordinates: &coordinates, count: savedRoute.count)
-            mapView.addOverlay(polyline)
+            mapView!.addOverlay(polyline)
             
             //setting region
             var regionRect = polyline.boundingMapRect
@@ -73,7 +86,7 @@ class finishRouteViewController: UITableViewController, MKMapViewDelegate {
             regionRect.origin.x -= wPadding / 2
             regionRect.origin.y -= hPadding / 2
             
-            mapView.setRegion(MKCoordinateRegionForMapRect(regionRect), animated: true)
+            mapView!.setRegion(MKCoordinateRegionForMapRect(regionRect), animated: true)
             
             
             //Preparing for pin
@@ -81,13 +94,14 @@ class finishRouteViewController: UITableViewController, MKMapViewDelegate {
                 var pin: MKPointAnnotation = MKPointAnnotation()
                 pin.coordinate = visit.coordinate
                 pin.title = "hello"
-                mapView.addAnnotation(pin)
+                mapView!.addAnnotation(pin)
             }
+            
+            return cell
         }
         
         // Configure the cell...
 
-        return cell
     }
     
     func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
