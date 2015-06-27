@@ -24,6 +24,7 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
         super.viewDidLoad()
         self.tableView.scrollEnabled = false;
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneButtonPressed")
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancelButtonPressed")
         self.title = "Finished Route"
         
         var v:UIView = UIView(frame: CGRectZero)
@@ -132,6 +133,10 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     func doneButtonPressed() {
         //SEND JSON!!!
         creatingJson()
+    }
+    
+    func cancelButtonPressed() {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func creatingJson() {

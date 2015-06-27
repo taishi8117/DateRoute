@@ -35,11 +35,37 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         manager.distanceFilter = 10.0       //update when moved over 50m
+        manager.startUpdatingLocation()
+        manager.startMonitoringVisits()
         
+        //Setup our Map View
+        
+        mapView.delegate = self
+        mapView.mapType = MKMapType.Standard
+        mapView.showsUserLocation = true
+        mapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: true)
+        let spanX = 0.007
+        let spanY = 0.007
+        var hillsLoc: CLLocationCoordinate2D = CLLocationCoordinate2DMake(35.666851, 139.74955)
+        
+        //mapView.setCenterCoordinate(hillsLoc, animated: false)
+        
+        //var newRegion = MKCoordinateRegion(center:hillsLoc, span: MKCoordinateSpanMake(spanX, spanY))
+        //mapView.setRegion(newRegion, animated: false)
+        /*
         switch CLLocationManager.authorizationStatus() {
         case .AuthorizedAlways:
             manager.startUpdatingLocation()
             manager.startMonitoringVisits()
+            //Setup our Map View
+            
+            mapView.delegate = self
+            mapView.mapType = MKMapType.Standard
+            mapView.showsUserLocation = true
+            let spanX = 0.007
+            let spanY = 0.007
+            var newRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpanMake(spanX, spanY))
+            mapView.setRegion(newRegion, animated: true)
         case .NotDetermined:
             manager.requestAlwaysAuthorization()
         case .AuthorizedWhenInUse, .Restricted, .Denied:
@@ -59,19 +85,10 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
             alertController.addAction(openAction)
             
             self.presentViewController(alertController, animated: true, completion: nil)
-        }
+        }*/
         
         
-        //Setup our Map View
         
-        mapView.delegate = self
-        mapView.mapType = MKMapType.Standard
-        mapView.showsUserLocation = true
-        let spanX = 0.007
-        let spanY = 0.007
-        var newRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpanMake(spanX, spanY))
-        mapView.setRegion(newRegion, animated: true)
-
     }
     
     //Tracking location changes
