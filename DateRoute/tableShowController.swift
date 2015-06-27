@@ -31,8 +31,8 @@ func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexP
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        tableView.delegate = self
-        tableView.dataSource = self
+        //tableView.delegate = self
+        //tableView.dataSource = self
     }
     
     
