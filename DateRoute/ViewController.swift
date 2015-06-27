@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var startTracking: UIButton!
+    @IBOutlet weak var showRouteButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,6 +22,9 @@ class ViewController: UIViewController {
     }
     
 
+    @IBAction func showRouteButtonPressed(sender: UIButton) {
+        self.performSegueWithIdentifier("pushShowRoute", sender: self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

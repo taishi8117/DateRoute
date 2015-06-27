@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wr-ZZ-Orx">
-                                <rect key="frame" x="253" y="366" width="95" height="30"/>
+                                <rect key="frame" x="141" y="362" width="95" height="30"/>
                                 <state key="normal" title="Start Tracking">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -27,20 +27,32 @@
                                     <action selector="trackButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dNt-Gb-X4n"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eN-dk-w9M">
+                                <rect key="frame" x="380" y="362" width="84" height="30"/>
+                                <state key="normal" title="Show Route">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showRouteButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2mu-32-zfh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="1wr-ZZ-Orx" secondAttribute="centerX" id="YeG-Pg-N5b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6eN-dk-w9M" secondAttribute="trailing" constant="40" id="CVC-0A-1ja"/>
+                            <constraint firstItem="1wr-ZZ-Orx" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="40" id="Lr0-Y6-vo7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tZ0-QW-nwm"/>
                     <connections>
+                        <outlet property="showRouteButton" destination="6eN-dk-w9M" id="R47-CG-UFc"/>
                         <outlet property="startTracking" destination="1wr-ZZ-Orx" id="W97-Dk-ZFf"/>
                         <segue destination="JRY-Ze-bX2" kind="presentation" identifier="pushTrack" modalTransitionStyle="crossDissolve" id="JS0-EA-Ppy"/>
+                        <segue destination="M3E-Po-2fJ" kind="show" identifier="pushShowRoute" id="KJU-hj-0s6"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1155" y="334"/>
+            <point key="canvasLocation" x="1181" y="378"/>
         </scene>
         <!--Tracking View Controller-->
         <scene sceneID="55Q-sb-rHP">
@@ -130,7 +142,69 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IiO-6M-QQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="339" y="396"/>
+            <point key="canvasLocation" x="25" y="624"/>
+        </scene>
+        <!--Main Show Route View Controller-->
+        <scene sceneID="agC-Q5-Dd8">
+            <objects>
+                <viewController id="M3E-Po-2fJ" customClass="mainShowRouteViewController" customModule="DateRoute" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B5k-zJ-o7Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="HL9-VF-jTx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yWX-69-J58">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLd-3P-35l">
+                                <rect key="frame" x="202" y="285" width="60" height="30"/>
+                                <state key="normal" title="Location">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="locationButtonPressed:" destination="M3E-Po-2fJ" eventType="touchUpInside" id="naC-cs-bcf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="VLd-3P-35l" secondAttribute="centerX" id="dhT-Qs-mSt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="locationButton" destination="VLd-3P-35l" id="d5Z-sP-6BI"/>
+                        <segue destination="2wn-d8-3U2" kind="show" identifier="pushShowTable" id="lm7-dN-H0q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dw8-TD-egX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1513" y="1154"/>
+        </scene>
+        <!--Show Route Table View Controller-->
+        <scene sceneID="YDE-jV-C2p">
+            <objects>
+                <tableViewController id="2wn-d8-3U2" customClass="ShowRouteTableViewController" customModule="DateRoute" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="io1-91-uuu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="W5t-9s-GSe">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W5t-9s-GSe" id="PjH-u5-6ry">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2wn-d8-3U2" id="yhV-5B-AO9"/>
+                            <outlet property="delegate" destination="2wn-d8-3U2" id="Za1-vB-CYP"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pYx-gF-r7n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2237" y="1165"/>
         </scene>
     </scenes>
 </document>
