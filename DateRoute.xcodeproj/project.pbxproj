@@ -13,6 +13,7 @@
 		5ACF38A71B3E6B060044EC34 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF38A61B3E6B060044EC34 /* Images.xcassets */; };
 		5ACF38AA1B3E6B060044EC34 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ACF38A81B3E6B060044EC34 /* LaunchScreen.xib */; };
 		5ACF38B61B3E6B060044EC34 /* DateRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACF38B51B3E6B060044EC34 /* DateRouteTests.swift */; };
+		5AE7051E1B3E6D3D00EC926A /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		5ACF38AF1B3E6B060044EC34 /* DateRouteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DateRouteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ACF38B41B3E6B060044EC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5ACF38B51B3E6B060044EC34 /* DateRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRouteTests.swift; sourceTree = "<group>"; };
+		5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				5ACF389F1B3E6B060044EC34 /* AppDelegate.swift */,
 				5ACF38A11B3E6B060044EC34 /* ViewController.swift */,
+				5AE7051D1B3E6D3D00EC926A /* TrackingViewController.swift */,
 				5ACF38A31B3E6B060044EC34 /* Main.storyboard */,
 				5ACF38A61B3E6B060044EC34 /* Images.xcassets */,
 				5ACF38A81B3E6B060044EC34 /* LaunchScreen.xib */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AE7051E1B3E6D3D00EC926A /* TrackingViewController.swift in Sources */,
 				5ACF38A21B3E6B060044EC34 /* ViewController.swift in Sources */,
 				5ACF38A01B3E6B060044EC34 /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +413,7 @@
 				5ACF38BB1B3E6B060044EC34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5ACF38BC1B3E6B060044EC34 /* Build configuration list for PBXNativeTarget "DateRouteTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				5ACF38BE1B3E6B060044EC34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
