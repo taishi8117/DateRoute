@@ -9,14 +9,13 @@
 import UIKit
 
 
+
 class mainShowRouteViewController: UIViewController {
 
-    var name: [String]
-    var rating: [Int]
-    var area: [String]
-    var duration: [Int]
-    var time: [Int]
-    var users: [Int]
+    var searchLocation = ""
+    var searchTime = 0
+    
+    var jsonArray: [NSDictionary] = []
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var locationPicked: UITextField!
     @IBOutlet weak var timepicked: UITextField!
@@ -33,16 +32,35 @@ class mainShowRouteViewController: UIViewController {
     
 
     @IBAction func searchButtonPressed(sender: AnyObject) {
-        
-            var Route = dict["Route"] as NSDictionary
-            name = Route["Name"] as NSArray
-            rating = Route["Rating"] as NSArray
-            area = Route["Area"] as NSArray
-            duration = Route["Duration"] as NSArray
-            time = Route["Times"] as NSArray
-            users = Route["Users"] as NSArray
+        // GET JSON AND NAME THE DATA dict
+        getValuesFromJason()
         
     self.performSegueWithIdentifier("pushShowTable", sender: self)
+    }
+    
+    func getValuesFromJason(){
+       
+        
+        let reqConfig: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let reqURL: NSURL = NSURL(string: "http://192.168.43.20:5000/api/v1.0/route/?area=\(searchLocation)&time=\(searchTime)")!
+        //let reqURL: NSURL = NSURL(string: "http://localhost:8000/")!
+        let reqReq: NSMutableURLRequest = NSMutableURLRequest(URL: reqURL)
+        let reqSession: NSURLSession = NSURLSession(configuration: reqConfig)
+        reqReq.HTTPMethod = "GET"
+        reqReq.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+       
+        //converting json to str (adjusting keys)
+        
+        var task = reqSession.dataTaskWithRequest(reqReq, completionHandler: {
+            (data, resp, err) in
+            //println(resp.URL!)
+            var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+            self.jsonArray.append(dict)
+            /*println(NSString(data: data, encoding: NSUTF8StringEncoding))*/
+        })
+        task.resume()
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -50,6 +68,7 @@ class mainShowRouteViewController: UIViewController {
          //Pass the selected object to the new view controller.
         if (segue.identifier == "pushShowTable") {
             var titlesView: tableShowController = segue.destinationViewController as! tableShowController
+            titlesView.resultJsonArray = self.jsonArray
             
         }
 
