@@ -8,9 +8,15 @@
 
 import UIKit
 
+
 class mainShowRouteViewController: UIViewController {
 
-    let texts = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var name: [String]
+    var rating: [Int]
+    var area: [String]
+    var duration: [Int]
+    var time: [Int]
+    var users: [Int]
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var locationPicked: UITextField!
     @IBOutlet weak var timepicked: UITextField!
@@ -27,6 +33,15 @@ class mainShowRouteViewController: UIViewController {
     
 
     @IBAction func searchButtonPressed(sender: AnyObject) {
+        
+            var Route = dict["Route"] as NSDictionary
+            name = Route["Name"] as NSArray
+            rating = Route["Rating"] as NSArray
+            area = Route["Area"] as NSArray
+            duration = Route["Duration"] as NSArray
+            time = Route["Times"] as NSArray
+            users = Route["Users"] as NSArray
+        
     self.performSegueWithIdentifier("pushShowTable", sender: self)
     }
     
@@ -35,7 +50,7 @@ class mainShowRouteViewController: UIViewController {
          //Pass the selected object to the new view controller.
         if (segue.identifier == "pushShowTable") {
             var titlesView: tableShowController = segue.destinationViewController as! tableShowController
-            titlesView.texts = texts
+            
         }
 
        }
