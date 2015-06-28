@@ -10,18 +10,17 @@ import UIKit
 
 
 
-class mainShowRouteViewController: UIViewController {
+class mainShowRouteViewController: UIViewController  {
 
-    var searchLocation = ""
-    var searchTime = 0
-    
+    var location: String!
+    var time: Int!
     var jsonArray: [NSDictionary] = []
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var locationPicked: UITextField!
-    @IBOutlet weak var timepicked: UITextField!
+    @IBOutlet weak var timePicked: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -32,6 +31,8 @@ class mainShowRouteViewController: UIViewController {
     
 
     @IBAction func searchButtonPressed(sender: AnyObject) {
+        var location = locationPicked.text
+        var time = timePicked.text.toInt()!
         // GET JSON AND NAME THE DATA dict
         getValuesFromJason()
         
@@ -42,7 +43,7 @@ class mainShowRouteViewController: UIViewController {
        
         
         let reqConfig: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let reqURL: NSURL = NSURL(string: "http://192.168.43.20:5000/api/v1.0/route/?area=\(searchLocation)&time=\(searchTime)")!
+        let reqURL: NSURL = NSURL(string: "http://192.168.43.20:5000/api/v1.0/route/?area=\(location)&time=\(time)")!
         //let reqURL: NSURL = NSURL(string: "http://localhost:8000/")!
         let reqReq: NSMutableURLRequest = NSMutableURLRequest(URL: reqURL)
         let reqSession: NSURLSession = NSURLSession(configuration: reqConfig)
@@ -61,6 +62,7 @@ class mainShowRouteViewController: UIViewController {
         })
         task.resume()
         
+        print("\(jsonArray)")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

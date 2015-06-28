@@ -24,6 +24,8 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -32,11 +34,21 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
         //tableView.dataSource = self
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+ /*   func dictToArray(){
+        if let newName: String = resultJsonArray["name"] {
+            name.append(newName)
+        }
+        if let newRating = resultJsonArray["rating"] {
+            rating.append(newRating)
+        }
+    }
+*/
     
     // セルに表示するテキスト
    

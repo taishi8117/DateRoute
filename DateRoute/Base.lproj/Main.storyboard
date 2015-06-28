@@ -128,7 +128,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="UzM-CJ-XZi">
-                                            <rect key="frame" x="0.0" y="0.5" width="375" height="243.5"/>
+                                            <rect key="frame" x="0.0" y="1" width="375" height="244"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Omotesando" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpq-CW-PhK">
                                             <rect key="frame" x="19" y="199" width="177" height="24"/>
@@ -243,6 +243,8 @@
                     <connections>
                         <outlet property="locationPicked" destination="D9a-as-XD5" id="o6w-dZ-HZU"/>
                         <outlet property="searchButton" destination="BI5-Ep-51C" id="aiQ-Lm-8EW"/>
+                        <outlet property="searchLocation" destination="D9a-as-XD5" id="2AO-ve-nLh"/>
+                        <outlet property="searchTime" destination="LhN-Yx-cPZ" id="tC8-t4-1c2"/>
                         <outlet property="timepicked" destination="LhN-Yx-cPZ" id="zeZ-ft-rjz"/>
                         <segue destination="qfZ-yH-eaw" kind="show" identifier="pushShowTable" id="vCi-K0-ix9"/>
                     </connections>
