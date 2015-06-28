@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>89811F31-9E74-45AA-9EB4-DEDC1B75664D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>DateRoute</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>51CCD7679430892F8211FD8CB0E96EE879012CB0</key>
 		<string>https://github.com/taishi8117/DateRoute.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>DateRoute.xcodeproj</string>
+	<string>DateRoute.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>51CCD7679430892F8211FD8CB0E96EE879012CB0</key>

@@ -155,8 +155,8 @@ class TrackingViewController: UIViewController, CLLocationManagerDelegate, MKMap
         
         if (myLocations.count < 3) {
             let alert = UIAlertController(
-                title: "Too Few Locations Recorded!",
-                message: "In order to be notified about adorable kittens near you, please open this app's settings and set location access to 'Always'.",
+                title: "You didn't Move!!",
+                message: "In order to track your date route, you need to move with this app.",
                 preferredStyle: .Alert)
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
             alert.addAction(cancelAction)

@@ -19,6 +19,7 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     var savedRating: Int = 4
     var savedArea: String = "Ebisu"
     var comment = "Comment test"
+    var IsFromTrack: Bool = true
     
     var mapView: MKMapView?
 
@@ -134,6 +135,22 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     func doneButtonPressed() {
         //SEND JSON!!!
         creatingJson()
+        let alertController = UIAlertController(
+            title: "Thank You!",
+            message: "Your Date Route Has Been Shared!",
+            preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "OK", style: .Cancel, handler: {
+            (action:UIAlertAction!) -> Void in
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        })
+        alertController.addAction(cancelAction)
+        let delay = 1 * Double(NSEC_PER_SEC)
+        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.presentViewController(alertController, animated: true, completion:nil)
+        }
+        
     }
     
     func cancelButtonPressed() {
@@ -160,7 +177,7 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
         
         //HTTP Req
         let reqConfig: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let reqURL: NSURL = NSURL(string: "http://192.168.43.20:5000/postroute/")!
+        let reqURL: NSURL = NSURL(string: "http://dateroute3.mybluemix.net/postroute/")!
         //let reqURL: NSURL = NSURL(string: "http://localhost:8000/")!
         let reqReq: NSMutableURLRequest = NSMutableURLRequest(URL: reqURL)
         let reqSession: NSURLSession = NSURLSession(configuration: reqConfig)
@@ -176,6 +193,8 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
             (data, resp, err) in
             //println(resp.URL!)
             println(NSString(data: data, encoding: NSUTF8StringEncoding))
+            
+            
         })
         task.resume()
         
