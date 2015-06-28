@@ -36,7 +36,7 @@ class mainShowRouteViewController: UIViewController  {
         // GET JSON AND NAME THE DATA dict
         getValuesFromJason()
         
-        self.performSegueWithIdentifier("pushShowTable", sender: self)
+       
     }
     
     func getValuesFromJason(){
@@ -57,11 +57,14 @@ class mainShowRouteViewController: UIViewController  {
             (data, resp, err) in
             //println(resp.URL!)
             var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+            println("hey")
             println(dict)
             self.jsonDict = dict
             /*println(NSString(data: data, encoding: NSUTF8StringEncoding))*/
+            self.performSegueWithIdentifier("pushShowTable", sender: self)
         })
         task.resume()
+        
         
     }
     
