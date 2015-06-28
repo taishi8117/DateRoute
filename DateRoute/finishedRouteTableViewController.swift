@@ -203,7 +203,7 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     
     func stringFromTimeInterval(interval:NSTimeInterval) -> NSString {
         
-        var ti = NSInteger(interval)
+        var ti = NSInteger(interval) + 40*20
         
         var ms = Int((interval % 1) * 1000)
         

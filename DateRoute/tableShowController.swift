@@ -67,7 +67,7 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
         getPoints()
         
         //set variables according to the ranking
-        let delay = 4 * Double(NSEC_PER_SEC)
+        let delay = 1.5 * Double(NSEC_PER_SEC)
         let delayedtime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(delayedtime, dispatch_get_main_queue()) {
             self.performSegueWithIdentifier("showDetails", sender: self)
