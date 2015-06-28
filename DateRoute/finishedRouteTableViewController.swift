@@ -16,6 +16,8 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     var savedRoute: [CLLocation] = []
     var savedVisit: [CLVisit] = []
     var savedTime: TimeElement!
+    var savedRating: Int = 4
+    var savedArea: String = "Ebisu"
     var comment = "Comment test"
     
     var mapView: MKMapView?
@@ -24,7 +26,8 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
         super.viewDidLoad()
         self.navigationController?.navigationBar.hidden = false
         self.tableView.scrollEnabled = false;
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "doneButtonPressed")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: UIBarButtonItemStyle.Done, target: self, action: "doneButtonPressed")
+        self.navigationItem.rightBarButtonItem!.title = "Share"
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "cancelButtonPressed")
         self.title = "Finished Route"
         
@@ -139,14 +142,25 @@ class finishedRouteTableViewController: UITableViewController, MKMapViewDelegate
     
     func creatingJson() {
         
-        var commentDict: NSDictionary = ["Comment": self.comment,"RouteId": 2]
+        //var commentDict: NSDictionary = ["Comment": self.comment,"RouteId": 2]
         var e: NSError?
-        let json = NSJSONSerialization.dataWithJSONObject(commentDict, options: NSJSONWritingOptions(0), error: &e)
         
+        var duration: Int = Int(round(self.savedTime.duration))
+        var routeDict: NSDictionary = ["Name": "EBISU", "Rating": self.savedRating, "Area": self.savedArea, "Duration": duration, "Time": 1, "Users": 1]
+        var jsonPointDict: [NSDictionary] = []
+        for i in 0..<savedRoute.count {
+            var tempPointDict:NSDictionary = ["Lat": savedRoute[i].coordinate.latitude, "Lon": savedRoute[i].coordinate.longitude, "Stop": 1]
+            jsonPointDict.append(tempPointDict)
+        }
+        
+        var finPointDict: NSDictionary = ["Point":jsonPointDict]
+        
+        var jsonDict: NSDictionary = ["Route": routeDict, "Points": finPointDict]
+        let json = NSJSONSerialization.dataWithJSONObject(jsonDict, options: NSJSONWritingOptions(0), error: &e)
         
         //HTTP Req
         let reqConfig: NSURLSessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let reqURL: NSURL = NSURL(string: "http://192.168.43.20:5000/postcomment/")!
+        let reqURL: NSURL = NSURL(string: "http://192.168.43.20:5000/postroute/")!
         //let reqURL: NSURL = NSURL(string: "http://localhost:8000/")!
         let reqReq: NSMutableURLRequest = NSMutableURLRequest(URL: reqURL)
         let reqSession: NSURLSession = NSURLSession(configuration: reqConfig)

@@ -14,7 +14,7 @@ class mainShowRouteViewController: UIViewController  {
 
     var location: String!
     var time: Int!
-    var jsonArray: [NSDictionary] = []
+    var jsonDict: NSDictionary!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var locationPicked: UITextField!
     @IBOutlet weak var timePicked: UITextField!
@@ -31,12 +31,12 @@ class mainShowRouteViewController: UIViewController  {
     
 
     @IBAction func searchButtonPressed(sender: AnyObject) {
-        var location = locationPicked.text
-        var time = timePicked.text.toInt()!
+        location = locationPicked.text
+        time = timePicked.text.toInt()!
         // GET JSON AND NAME THE DATA dict
         getValuesFromJason()
         
-    self.performSegueWithIdentifier("pushShowTable", sender: self)
+        self.performSegueWithIdentifier("pushShowTable", sender: self)
     }
     
     func getValuesFromJason(){
@@ -57,12 +57,12 @@ class mainShowRouteViewController: UIViewController  {
             (data, resp, err) in
             //println(resp.URL!)
             var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
-            self.jsonArray.append(dict)
+            println(dict)
+            self.jsonDict = dict
             /*println(NSString(data: data, encoding: NSUTF8StringEncoding))*/
         })
         task.resume()
         
-        print("\(jsonArray)")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -70,7 +70,7 @@ class mainShowRouteViewController: UIViewController  {
          //Pass the selected object to the new view controller.
         if (segue.identifier == "pushShowTable") {
             var titlesView: tableShowController = segue.destinationViewController as! tableShowController
-            titlesView.resultJsonArray = self.jsonArray
+            titlesView.resultJsonDict = self.jsonDict
             
         }
 

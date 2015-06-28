@@ -20,7 +20,7 @@ class tableShowController: UIViewController, UITableViewDataSource, UITableViewD
     //var point = Dictionary<String,Any>()
     
     var routeDict: [NSDictionary] = []
-    var resultJsonArray: [NSDictionary] = []
+    var resultJsonDict: NSDictionary!
     
     @IBOutlet weak var tableView: UITableView!
     

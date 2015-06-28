@@ -217,11 +217,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LhN-Yx-cPZ">
-                                <rect key="frame" x="338" y="268" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BI5-Ep-51C">
                                 <rect key="frame" x="236" y="430" width="48" height="30"/>
                                 <state key="normal" title="Search">
@@ -237,15 +232,18 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LhN-Yx-cPZ">
+                                <rect key="frame" x="338" y="268" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="locationPicked" destination="D9a-as-XD5" id="o6w-dZ-HZU"/>
                         <outlet property="searchButton" destination="BI5-Ep-51C" id="aiQ-Lm-8EW"/>
-                        <outlet property="searchLocation" destination="D9a-as-XD5" id="2AO-ve-nLh"/>
-                        <outlet property="searchTime" destination="LhN-Yx-cPZ" id="tC8-t4-1c2"/>
-                        <outlet property="timepicked" destination="LhN-Yx-cPZ" id="zeZ-ft-rjz"/>
+                        <outlet property="timePicked" destination="LhN-Yx-cPZ" id="zeZ-ft-rjz"/>
                         <segue destination="qfZ-yH-eaw" kind="show" identifier="pushShowTable" id="vCi-K0-ix9"/>
                     </connections>
                 </viewController>
